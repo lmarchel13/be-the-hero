@@ -19,13 +19,11 @@ export default () => {
   }, [ngoId]);
 
   const handleDeleteIncident = async id => {
-    console.log({ id, ngoId });
     try {
       await provider.delete(`incidents/${id}`, { headers: { Authorization: ngoId } });
 
       setIncidents(incidents.filter(incident => incident.id !== id));
     } catch (error) {
-      console.log("error :", error);
       alert("Error while deleting incident, please try again.");
     }
   };

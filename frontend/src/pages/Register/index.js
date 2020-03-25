@@ -18,7 +18,6 @@ export default () => {
   const handleRegister = async event => {
     event.preventDefault();
     const payload = { name, email, whatsapp, city, state };
-    console.log(payload);
 
     try {
       const {
@@ -28,7 +27,6 @@ export default () => {
       alert(`Your Access ID: ${id}`);
       history.push("/");
     } catch (error) {
-      console.log("error :", error);
       alert("Erorr while registering. Please, try again.", error.message);
     }
   };

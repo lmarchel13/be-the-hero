@@ -15,14 +15,11 @@ export default () => {
   const history = useHistory();
 
   const handleNewIncident = async event => {
-    console.log("handle new incident");
     event.preventDefault();
     const payload = { title, description, value };
-    console.log(payload);
 
     try {
       await provider.post("incidents", payload, { headers: { Authorization: ngoId } });
-      console.log("saved");
       history.push("/profile");
     } catch (error) {
       alert("Error while creating new incident. Please try again");
