@@ -1,9 +1,10 @@
 const { TABLES } = require("../config");
-const client = require("../database/connection")(TABLES.NGOS);
+const connection = require("../database/connection");
 const { ERROR } = require("../docs");
 
 class SessionService {
   static async create(req, res) {
+    const client = connection(TABLES.NGOS);
     const { id } = req.body;
     const ngo = await client.first().where({ id });
 
